@@ -1,0 +1,19 @@
+{
+  "name": "buildreactwithwebpack",
+  "version": "1.0.0",
+  "description": "从零开始构建react。使用webpack+react全家桶",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starunaway/BuildReactWithWebpack.git"
+  },
+  "author": "starunaway",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/starunaway/BuildReactWithWebpack/issues"
+  },
+  "homepage": "https://github.com/starunaway/BuildReactWithWebpack#readme"
+}
