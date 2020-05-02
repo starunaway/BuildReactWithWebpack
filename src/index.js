@@ -9,7 +9,7 @@ function component() {
   btn.innerHTML = 'Click me and check the console!';
   btn.onclick = printMe;
 
-  element.innerHTML = 'hello webpack';
+  element.innerHTML = 'hello webpack from webpack-dev-server';
   element.innerHTML += moment().format('YYYY-MM-DD HH:mm:ss');
 
   element.classList.add('time');
