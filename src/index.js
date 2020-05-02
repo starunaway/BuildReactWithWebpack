@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 function component() {
   var element = document.createElement('div');
   element.innerHTML = 'hello webpack';
