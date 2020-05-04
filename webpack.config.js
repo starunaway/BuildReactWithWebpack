@@ -3,15 +3,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
-    print: './src/print.js',
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
+  entry: './src/index.js',
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -22,12 +14,22 @@ module.exports = {
         test: /\.(less|css)$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(js|jsx)$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'HtmlWebpackPlugin',
+      template: './src/index.html',
     }),
     new CleanWebpackPlugin(),
   ],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
 };

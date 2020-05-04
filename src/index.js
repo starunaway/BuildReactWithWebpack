@@ -1,20 +1,5 @@
-import moment from 'moment';
-import printMe from './print';
-import './style.less';
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from './App.js';
 
-function component() {
-  var element = document.createElement('div');
-  var btn = document.createElement('button');
-
-  btn.innerHTML = 'Click me and check the console!';
-  btn.onclick = printMe;
-
-  element.innerHTML = 'hello webpack from webpack-dev-server';
-  element.innerHTML += moment().format('YYYY-MM-DD HH:mm:ss');
-
-  element.classList.add('time');
-  element.appendChild(btn);
-
-  return element;
-}
-document.body.appendChild(component());
+ReactDom.render(<App />, document.getElementById('root'));
