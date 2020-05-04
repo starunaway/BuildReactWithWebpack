@@ -1,0 +1,3778 @@
+{
+  "name": "从零开始构建react",
+  "description": "",
+  "id": "088539192e8c35397e6280a20b8073fa",
+  "created": "2020-04-28T14:23:29.720Z",
+  "articles": [
+    {
+      "name": "从零开始构建react",
+      "description": "从无到有的构建react应用，再到webpack的配置优化",
+      "id": "088539192e8c35397e6280a20b8073fa"
+    }
+  ],
+  "steps": [
+    {
+      "commit": "7e881f7a4dbd5fd04a08d47fd85629664e5b98d2",
+      "id": "16a5416a",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "7e881f7a4dbd5fd04a08d47fd85629664e5b98d2",
+          "id": "6a8afb54",
+          "fixed": true,
+          "children": [
+            {
+              "text": "Initial commit"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "LICENSE",
+          "display": false,
+          "commit": "7e881f7a4dbd5fd04a08d47fd85629664e5b98d2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "LICENSE",
+              "commit": "7e881f7a4dbd5fd04a08d47fd85629664e5b98d2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "README.md",
+          "display": false,
+          "commit": "7e881f7a4dbd5fd04a08d47fd85629664e5b98d2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "README.md",
+              "commit": "7e881f7a4dbd5fd04a08d47fd85629664e5b98d2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "be1866dd53455eda278bac2ab9c369d9ee9d0c07",
+      "id": "8013437e",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "be1866dd53455eda278bac2ab9c369d9ee9d0c07",
+          "id": "d1b0e5d0",
+          "fixed": true,
+          "children": [
+            {
+              "text": "init"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".gitignore",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".gitignore",
+              "commit": "be1866dd53455eda278bac2ab9c369d9ee9d0c07",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "5ce86c867d8efcea0c69628c5b9be383fc8435c0",
+      "id": "93b38d75",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "5ce86c867d8efcea0c69628c5b9be383fc8435c0",
+          "id": "bf41daae",
+          "fixed": true,
+          "children": [
+            {
+              "text": "npm init"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "现在前端的基础设施已经离不开npm这个大的基础环境了。本文也是在此基础上进行讲解。欲食用，请确保已经成功安装了node及npm"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "5ce86c867d8efcea0c69628c5b9be383fc8435c0",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "找一个自己心怡的风水宝地，在命令行中按下"
+                    },
+                    {
+                      "text": "npm init",
+                      "code": true
+                    },
+                    {
+                      "text": "，按照提示随便输入一些简介，就生成了如下一个文件。文件内容未必一样，长的像就可以了"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "5ce86c867d8efcea0c69628c5b9be383fc8435c0",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "86f57e71ae4a00d1e52a3fccd510f826502e16d3",
+      "id": "908fce01",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "86f57e71ae4a00d1e52a3fccd510f826502e16d3",
+          "id": "ce852a03",
+          "fixed": true,
+          "children": [
+            {
+              "text": "为什么使用webpack"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "index.html",
+          "display": true,
+          "commit": "86f57e71ae4a00d1e52a3fccd510f826502e16d3",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "index.html",
+              "commit": "86f57e71ae4a00d1e52a3fccd510f826502e16d3",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.js",
+          "display": true,
+          "commit": "86f57e71ae4a00d1e52a3fccd510f826502e16d3",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.js",
+              "commit": "86f57e71ae4a00d1e52a3fccd510f826502e16d3",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+      "id": "8882dd56",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+          "id": "81f950ad",
+          "fixed": true,
+          "children": [
+            {
+              "text": "初次使用webpack进行打包"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/index.html",
+          "display": true,
+          "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/index.html",
+              "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/main.js",
+          "display": true,
+          "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/main.js",
+              "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  10,
+                  14
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.js",
+          "display": true,
+          "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.js",
+              "commit": "3f66f31d291546811a7a056ce43b032f833b5a29",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+      "id": "e3743cf4",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+          "id": "19a61d01",
+          "fixed": true,
+          "children": [
+            {
+              "text": "使用webpack的配置文件"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/bundle.js",
+          "display": true,
+          "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/bundle.js",
+              "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/index.html",
+          "display": true,
+          "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/index.html",
+              "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "c29010f58f7451edb60423d7a2773d526579072c",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+      "id": "2b78e615",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+          "id": "30d70ef4",
+          "fixed": true,
+          "children": [
+            {
+              "text": "webpack打包资源"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/bundle.js",
+          "display": true,
+          "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/bundle.js",
+              "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+              "hiddenLines": [
+                [
+                  0,
+                  19
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.js",
+          "display": true,
+          "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.js",
+              "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/style.less",
+          "display": true,
+          "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/style.less",
+              "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "6253991c008efa17dbcd843b96cc5ad736562760",
+              "hiddenLines": [
+                [
+                  0,
+                  4
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+      "id": "55aa061e",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "id": "5ba4ce6b",
+          "fixed": true,
+          "children": [
+            {
+              "text": "使用多入口"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/app.bundle.js",
+          "display": true,
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/app.bundle.js",
+              "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/index.html",
+          "display": true,
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/index.html",
+              "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+              "hiddenLines": [
+                [
+                  0,
+                  0
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/print.bundle.js",
+          "display": true,
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/print.bundle.js",
+              "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.js",
+          "display": true,
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.js",
+              "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/print.js",
+          "display": true,
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/print.js",
+              "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "db193eb67508689472cc690ea12cd1c4e6c583c2",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+      "id": "a30c1e48",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+          "id": "03d0cc6b",
+          "fixed": true,
+          "children": [
+            {
+              "text": "使用插件来管理入口"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/index.html",
+          "display": true,
+          "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/index.html",
+              "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+              "hiddenLines": [
+                [
+                  0,
+                  20
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "23214b4774ba83ad1ab2f0fc01901ad259a7055f",
+              "hiddenLines": [
+                [
+                  4,
+                  16
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+      "id": "9b5722d6",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+          "id": "14393347",
+          "fixed": true,
+          "children": [
+            {
+              "text": "在每次构建前清理文件"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "file",
+          "file": ".gitignore",
+          "display": false,
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".gitignore",
+              "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+              "hiddenLines": [
+                [
+                  0,
+                  19
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "ddbfa7b5269b5cbc75f0629937012cc933fbfe03",
+              "hiddenLines": [
+                [
+                  5,
+                  21
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "a2ba52eedf707e6d83acddd7fc2c6d7cccb0990f",
+      "id": "7cfdf0e7",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "a2ba52eedf707e6d83acddd7fc2c6d7cccb0990f",
+          "id": "628adf55",
+          "fixed": true,
+          "children": [
+            {
+              "text": "开发时加入代码原始位置的映射"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "a2ba52eedf707e6d83acddd7fc2c6d7cccb0990f",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "a2ba52eedf707e6d83acddd7fc2c6d7cccb0990f",
+              "hiddenLines": [
+                [
+                  0,
+                  5
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+      "id": "4ab82d08",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "id": "19fa9985",
+          "fixed": true,
+          "children": [
+            {
+              "text": "使用webpack-dev-server实时重新加载"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  11,
+                  25
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.js",
+          "display": true,
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.js",
+              "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+              "hiddenLines": [
+                [
+                  0,
+                  7
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "7859a0a387d8caa2d2383e33b53b6bd2fc1004e8",
+              "hiddenLines": [
+                [
+                  0,
+                  6
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "94a3908e655f4d2bd5c56f62fdee18ee343a17da",
+      "id": "35d98b8f",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "94a3908e655f4d2bd5c56f62fdee18ee343a17da",
+          "id": "71ac9d86",
+          "fixed": true,
+          "children": [
+            {
+              "text": "开启模块热替换"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/style.less",
+          "display": true,
+          "commit": "94a3908e655f4d2bd5c56f62fdee18ee343a17da",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/style.less",
+              "commit": "94a3908e655f4d2bd5c56f62fdee18ee343a17da",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "94a3908e655f4d2bd5c56f62fdee18ee343a17da",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "94a3908e655f4d2bd5c56f62fdee18ee343a17da",
+              "hiddenLines": [
+                [
+                  0,
+                  8
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+      "id": "c9485685",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "id": "74372abc",
+          "fixed": true,
+          "children": [
+            {
+              "text": "引入react"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": ".babelrc",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": ".babelrc",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [
+                [
+                  0,
+                  16
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/App.js",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/App.js",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.html",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.html",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.js",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.js",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "8b81d9e7741c3b4f3c88f4a448d8840dde939955",
+              "hiddenLines": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  18,
+                  21
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+      "id": "d9d98f76",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "id": "02f713b3",
+          "fixed": true,
+          "children": [
+            {
+              "text": "对webpack按环境进行配置"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  12,
+                  27
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/App.js",
+          "display": true,
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/App.js",
+              "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack/webpack.base.config.js",
+          "display": true,
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack/webpack.base.config.js",
+              "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+              "hiddenLines": [
+                [
+                  20,
+                  31
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack/webpack.config.js",
+          "display": true,
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack/webpack.config.js",
+              "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack/webpack.dev.config.js",
+          "display": true,
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack/webpack.dev.config.js",
+              "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack/webpack.prd.config.js",
+          "display": true,
+          "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack/webpack.prd.config.js",
+              "commit": "9b8e33a45f9a02781610f2bf530405433d9f2f26",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+      "id": "9fc141a4",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+          "id": "e9a9d1d6",
+          "fixed": true,
+          "children": [
+            {
+              "text": "使用配置文件"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "dist/index.html",
+          "display": true,
+          "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "dist/index.html",
+              "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "/dev/null",
+          "display": true,
+          "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "/dev/null",
+              "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  11,
+                  20
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "webpack.config.js",
+          "display": true,
+          "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "webpack.config.js",
+              "commit": "8d53f07b7afe92427ca8c652fe56cd7c3f1767e6",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "150cf3e39396924aa665e26c11d34d0dc3a84e1c",
+      "id": "7e828a5b",
+      "articleId": "088539192e8c35397e6280a20b8073fa",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "150cf3e39396924aa665e26c11d34d0dc3a84e1c",
+          "id": "9c85ec81",
+          "fixed": true,
+          "children": [
+            {
+              "text": "更新npm 命令"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "package.json",
+          "display": true,
+          "commit": "150cf3e39396924aa665e26c11d34d0dc3a84e1c",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "package.json",
+              "commit": "150cf3e39396924aa665e26c11d34d0dc3a84e1c",
+              "hiddenLines": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "github": "git@github.com:starunaway/BuildReactWithWebpack",
+  "remotes": [
+    {
+      "name": "origin",
+      "refs": {
+        "fetch": "git@github.com:starunaway/BuildReactWithWebpack.git",
+        "push": "git@github.com:starunaway/BuildReactWithWebpack.git"
+      }
+    }
+  ],
+  "version": "v1"
+}
