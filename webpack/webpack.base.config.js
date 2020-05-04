@@ -1,12 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
+  },
+  resolve: {
+    extensions: ['.js', 'jsx'],
+    mainFiles: ['index'],
+    alias: {
+      '@src': path.resolve(__dirname, '../src'),
+    },
   },
   module: {
     rules: [
@@ -25,11 +31,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new CleanWebpackPlugin(),
   ],
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
 };
