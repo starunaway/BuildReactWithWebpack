@@ -525,3 +525,105 @@ export default App;
 再次启动项目，叮叮叮叮~我们的 `react` 终于跑起来了，接下来就可以进行开发了
 
 ## 对 webpack 按环境进行配置
+
+现在我们的配置只有一个，但实际上我们需要在不同环境有不同的配置，比如在生产环境需要代码压缩，在开发环境需要一些开发工具帮我们提升开发效率。so，我们需要针对不同的环境进行不同的配置。
+
+遵循不重复原则，保留一个**通用**配置。为了将这些配置合并在一起，我们将使用一个名为 `webpack-merge` 的工具
+
+首先需要安装一下相关工具 `npm i -D webpack-merge cross-env`
+
+在项目根目录下创建 webpack 文件夹，在此处存放相关配置。
+首先创建 webpack.base.config.js，主要存放通用的基础配置
+
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../dist'),
+  },
+  resolve: {
+    extensions: ['.js', 'jsx'],
+    mainFiles: ['index'],
+    alias: {
+      '@src': path.resolve(__dirname, '../src'),
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(less|css)$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
+};
+```
+
+接下来创建开发环境的配置。注意，开发环境的配置是在基础配置上做增量
+webpack.dev.config.js
+
+```js
+module.exports = {
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+    port: 10086,
+    hot: true,
+    open: true,
+  },
+};
+```
+
+可以看到，dev 环境的配置只有 dev 相关的配置属性。同理，我们创建生产环境的配置
+webpack.prd.config.js
+
+```js
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
+module.exports = {
+  plugins: [new CleanWebpackPlugin()],
+};
+```
+
+最后，使用 webpack-merge 工具将配置文件按照环境合并起来
+webpack.config.js
+
+```js
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.config');
+const devConfig = require('./webpack.dev.config');
+const prdConfig = require('./webpack.prd.config');
+
+module.exports = (env, argv) => {
+  const config = process.env.NODE_ENV === 'development' ? devConfig : prdConfig;
+  return merge(baseConfig, config);
+};
+```
+
+文件结构如下
+|-webpack
+| |- webpack.config.js
+| |- webpack.dev.config.js
+| |- webpack.base.config.js
+| |- webpack.prd.config.js
+|
+|-src
+| |-- index.js
+| |-- index.html
+| |-- App.js
+|
+|- package.json
+|- .babelrc
