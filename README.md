@@ -362,8 +362,166 @@ module.exports = {
 
 ## 使用 webpack-dev-server 实时重新加载
 
+人一直在懒的路上越走越远。话说我每次修改文件，还得打包一次，刷新网页，烦不烦？怎么才能让它自己刷新呢？这就用到了新的`webpack`工具 : `webpack-dev-server`。
+`webpack-dev-server` 在本地启动了一个 `node` 服务，用来监听文件变化。每次文件修改后，会重新 ”打包“一次，不过”打包“后的文件是放在内存中，并且 `server` 创建了一个`socket`，每次文件变动后，会向前端发送一次通知，前端在接到通知后重新加载页面，达到自动刷新的效果.
+
+lets go，随我一起越来越懒吧
+
+首先，需要`npm i -D webpack-dev-server`
+
+修改 `package.json` 启动命令
+
+```json
+{
+  "scripts": {
+    "start": "webpack-dev-server --open"
+  }
+}
+```
+
+在 `webpack.config.js`中配置一下`devServer`：
+
+```js
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js',
+  },
+  //...
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
+  //...
+};
+```
+
+重新执行 `npm start`，瞅一眼你的浏览器，随便改改代码，保存一下瞅瞅
+
 ## 开启模块热替换
 
+模块热替换是 `webpack` 提供的最有用的功能之一。它允许在运行时更新所有类型的模块，而无需完全刷新。
+在 `webpack` 4.x 版本后，已经不需要插件就可以支持了，省心省力省代码  
+在 `webpack.config.js`中配置一下`devServer`：
+
+```js
+module.exports = {
+  //...
+
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
+  //...
+};
+```
+
 ## 引入 react
+
+重头戏来了，终于开始配置 `react` 了。话不多说，直接开始。主要是我也累了
+
+想要使用 react，必须安装 react 的依赖
+`npm i -S react react-dom`
+
+`react` 使用了 `JSX` 语法，所以需要 `babel` 的支持。`babel` 是什么？告诉你一个好消息，本文作者和百度谷歌等成为了战略合作伙伴关系，各位读者可免费在以上网站搜索
+所以嘞，还得再安装一下 `babel`
+
+`npm i -D @babel/core @babel/preset-react babel-loader`
+
+还记得之前讲过的吧，需要使用 `loader` 对资源进行打包，为了怕出错，把完整的 `webpack` 配置贴一下
+
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(less|css)$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(js|jsx)$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+    new CleanWebpackPlugin(),
+  ],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+    hot: true,
+  },
+};
+```
+
+大部分配置和原来的一样，变换的部分：
+
+1.  `entry` 文件现在改成了单入口，原因是教程到这，只需要一个入口就可以满足
+2.  `module.rules` 新加了对 `jsx` 的 `loader`
+3.  `react` 要求必须有一个根元素，`HtmlWebpackPlugin` 默认的模板不能满足，所以我们自己创建了一个模板
+
+看看模板长啥样 ： `src/index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>React-Manage</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+```
+
+修改一下 `src/index.js`，作为 `react` 的起点
+
+```js
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from './App.js';
+
+ReactDom.render(<App />, document.getElementById('root'));
+```
+
+在 `src` 下创建一个 `App，走一个` `src/App.js`
+
+```js
+import React from 'react';
+
+function App() {
+  return <div>this is a react app</div>;
+}
+
+export default App;
+```
+
+现在启动项目，发现 `babel` 是不起作用的，原因是 `babel` 的配置缺少了，补充一下
+在项目目录下创建`.babelrc`，和 `src` 平级
+
+```json
+{
+  "presets": ["@babel/preset-react"]
+}
+```
+
+再次启动项目，叮叮叮叮~我们的 `react` 终于跑起来了，接下来就可以进行开发了
 
 ## 对 webpack 按环境进行配置
