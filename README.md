@@ -200,3 +200,170 @@ document.body.appendChild(component());
 顾名思义，模块的规则是什么\_\_\_\_？填空题。更高级的用法，以后慢慢讲
 
 使用`npm i -D style-loader css-loader`,安装一下这俩 `loader`。安装完成后重新运行`npm start`。再次打开 `dist/index.html`，看看文字颜色
+
+## 使用多入口
+
+现在，我们在 html 文件里只引入了一个 js 文件。如果我们需要有多个 js 文件需要引入呢？我们需要手动去添加每一个文件吗？显然，这是不现实的。作为一个懒惰的程序员，怎么可能在这种事情上动手动脚呢。
+
+那么怎么自动添加**文件入口**呢？来搞一下
+
+嗯，现在`src`目录下创建一个新的`js`文件 `src/print.js`
+
+```js
+export default function printMe() {
+  console.log('I get called from print.js!');
+}
+```
+
+修改`src/index.js`如下：
+
+```js
+import moment from 'moment';
+import printMe from './print';
+import './style.less';
+
+function component() {
+  var element = document.createElement('div');
+  var btn = document.createElement('button');
+
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
+
+  element.innerHTML = 'hello webpack';
+  element.innerHTML += moment().format('YYYY-MM-DD HH:mm:ss');
+
+  element.classList.add('time');
+  element.appendChild(btn);
+
+  return element;
+}
+document.body.appendChild(component());
+```
+
+什么叫多入口？就是在 `index.html` 里面同时引入多个文件，而不是把这些文件打包到一起。为什么要引入多个文件而不是打包成一个？一个简单的场景，首屏加载速度，一开始的时候加载很多暂时用不到的数据，浪费
+
+言归正传，怎么使用 `webpack` 来进行操作呢？
+
+```js
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    //....
+  },
+};
+```
+
+很简单，在配置文件里修改 `entry` 和 `output`。其中 `output.filename`里 `[name]` 的 `name`，就是 `entry` 下的 `key` 值。至于怎么优化，接下来用到的时候再讨论。
+
+现在，修改`dist/index.html` 文件
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>hello</title>
+    <script src="./print.bundle.js"></script>
+  </head>
+  <body>
+    <script src="./app.bundle.js"></script>
+  </body>
+</html>
+```
+
+重新运行 `npm start`,在浏览器打开，瞅一眼
+
+## 使用插件来管理入口
+
+有没有发现每次修改完文件，需要重新打包的时候,都得修改一下 `index.html？`真的麻烦，怎么才能变得更懒呢？那就得借助插件了。插件是什么？不同于`loader`用来处理各式各样的资源，插件目的在于解决 `loader` 无法实现的其他事。`webpack` 提供了很多插件。具体可以查看 [这里](https://webpack.js.org/loaders)
+
+来来来，打开命令行，跟我一起输入 `npm i -D html-webpack-plugin`  
+然后修改一下`webpack.config.js`
+
+```js
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    print: './src/print.js',
+  },
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(less|css)$/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  //    新增这里
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'HtmlWebpackPlugin',
+    }),
+  ],
+};
+```
+
+接下来可以删除一下`dist`文件夹，运行一下`npm start`，走你~
+
+## 在每次构建前清理文件
+
+如果你细心的话，会发现 dist 文件夹下有一堆东西，每次构建时其实有多文件是占那啥不那啥的，并且如果上生产环境，万一不小心添加一些没用但还产生影响的文件咋办？难道每次构建前都要手动去删除一下吗？这也太**不懒**了!
+
+想想上一节对插件的定义？是不是想找一个插件来帮你做这件事？别说，还真有
+
+命令行,`npm i -D clean-webpack-plugin` 走起
+
+修改`webpack.config.js`，
+
+```js
+// ... require 其他的一堆包
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: {},
+  //   ...其他的配置
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'HtmlWebpackPlugin',
+    }),
+    //  新增这个插件
+    new CleanWebpackPlugin(),
+  ],
+};
+```
+
+再次运行`npm start`，有木有发现 `dist` 每次都只有这次打包的内容 !
+
+## 开发时加入代码原始位置的映射
+
+`webpack` 打包源代码时，把文件都打包到一起了，很难追踪到 `error`(错误) 和 `warning`(警告) 在源代码中的原始位置。  
+例如，如果将三个源文件（`a.js`,`b.js`和`c.js`）打包到一个 `bundle(bundle.js)`中，而其中一个源文件包含一个错误，那么堆栈跟踪就会直接指向到 `bundle.js`。 毕竟咱不是神，只是个懒惰的程序员，bug 是肯定存在的，又不想一行行翻代码，所以，就需要开启新的配置项了.
+
+在配置文件中新增一个新的字段
+
+```js
+module.exports = {
+  //  ...
+  devtool: 'inline-source-map',
+};
+```
+
+随便写个 bug，现在会准确的告诉你是哪一行
+
+## 使用 webpack-dev-server 实时重新加载
+
+## 开启模块热替换
+
+## 引入 react
+
+## 对 webpack 按环境进行配置
