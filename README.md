@@ -614,6 +614,7 @@ module.exports = (env, argv) => {
 ```
 
 文件结构如下
+```
 |-webpack
 | |- webpack.config.js
 | |- webpack.dev.config.js
@@ -627,3 +628,4 @@ module.exports = (env, argv) => {
 |
 |- package.json
 |- .babelrc
+```
