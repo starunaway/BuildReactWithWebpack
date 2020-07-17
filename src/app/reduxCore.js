@@ -43,7 +43,7 @@ export default function create(createOpts = {}) {
       }
     }
 
-    const store = createStore({
+    const store = createReduxStore({
       reducers: reducerBuilder(app._models, onReducer),
       initialState,
       //   sagaMiddleware,
@@ -57,7 +57,7 @@ export default function create(createOpts = {}) {
   }
 }
 
-function createStore(opts = {}) {
+function createReduxStore(opts = {}) {
   const {
     reducers,
     initialState,

@@ -3,7 +3,7 @@ import ReactDom from 'react-dom';
 import * as Routers from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createHashHistory} from 'history';
-import create from '../redux/core';
+import create from './reduxCore';
 import {isFunction, isHTMLElement, isString} from './utils';
 
 function App(opts = {}) {
@@ -55,7 +55,7 @@ function getProvider(store, app) {
 }
 
 function render(container, store, app) {
-  ReactDOM.render(getProvider(store, app), container);
+  ReactDom.render(getProvider(store, app), container);
 }
 
 function patchHistory(history) {

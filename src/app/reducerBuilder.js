@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import createReducer from './createReducer';
+// import createReducer from './createReducer';
 import isNil from 'lodash/isNil';
 import isObject from 'lodash/isObject';
 import has from 'lodash/has';
@@ -18,7 +18,7 @@ export function reducerBuilder(options, onReducer) {
     }
   }
 
-  for (let [key, reducerGroup] of renderGroups.entries()) {
+  for (let [key, reducerGroup] of reducerGroups.entries()) {
     if (reducers.hasOwnProperty(key)) {
       throw Error('重复声明 key ' + key);
     }

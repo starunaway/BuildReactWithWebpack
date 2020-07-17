@@ -1,4 +1,4 @@
-import init from '@utils/instacnce';
+import init from '@utils/instance';
 
 const _action = init();
 
@@ -29,3 +29,5 @@ class Action {
     });
   };
 }
+
+export default Action;
