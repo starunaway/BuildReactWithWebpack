@@ -12,6 +12,12 @@ module.exports = {
     mainFiles: ['index'],
     alias: {
       '@src': path.resolve(__dirname, '../src'),
+      '@action': path.resolve(__dirname, '../src/action'),
+      '@app': path.resolve(__dirname, '../src/app'),
+      '@models': path.resolve(__dirname, '../src/models'),
+      '@pages': path.resolve(__dirname, '../src/pages'),
+      '@routes': path.resolve(__dirname, '../src/routes'),
+      '@utils': path.resolve(__dirname, '../src/utils'),
     },
   },
   module: {
@@ -29,7 +35,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './index.html',
     }),
   ],
 };

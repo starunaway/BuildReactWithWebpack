@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import Page from '@pages';
 
-class Dom extends React.Component {
-  render() {
-    return (
-      <div>
-        this is a react app
-        <button onClick={() => alert('Hello')}> click me </button>
-      </div>
-    );
-  }
-}
+import App from '@app';
+import Action from '@action';
+import routes from '@routes';
+import models from '@models';
+import {onEffect, onFetchOption} from '@utils/reduxUtils';
 
-ReactDom.render(<Dom />, document.getElementById('root'));
+ReactDom.render(<Page />, document.getElementById('root'));
