@@ -1,70 +1,53 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import * as Routers from 'react-router-dom';
-import {Provider} from 'react-redux';
 import {createHashHistory} from 'history';
-import create from './reduxCore';
-import {isFunction, isHTMLElement, isString} from './utils';
+import React from 'react';
+import createStore from './reduxCore';
+import * as Type from '@utils/isType';
+import ReactDom from 'react-dom';
+import {Provider} from 'react-redux';
 
-function App(opts = {}) {
-  const {onEffect, onFetchOption, onReducer} = opts;
-  const history = opts.history || createHashHistory();
-  const createOpts = {
-    setupApp: function (app) {
-      app._history = patchHistory(history);
-    },
-    onEffect,
-    onFetchOption,
-    onReducer,
-    history,
+class App {
+  constructor(opts) {
+    // const history = opts.history || createHashHistory();
+    this._models = [];
+    // this._history = patchHistory(history);
+  }
+
+  setRouter = (router) => {
+    console.log('router', router);
+    this._router = router;
   };
-
-  const app = create(createOpts);
-  const oldAppStart = app.start;
-  app.router = router;
-  app.start = start;
-  return app;
-
-  function start(container) {
-    if (isString(container)) {
+  setModels = (models) => {
+    console.log('models');
+    this._models = [...this._models, ...models];
+  };
+  start = (container) => {
+    console.log('start');
+    if (Type.isString(container)) {
       container = document.querySelector(container);
     }
 
-    if (!isHTMLElement(container)) {
-      throw new Error('app.start 应该是 HTMLElement 元素');
-    }
-    if (!app._store) {
-      oldAppStart(app);
+    if (!Type.isHTMLElement(container)) {
+      throw new Error('container 应该是 HTMLElement 元素');
     }
 
-    const store = app._store;
+    if (!this._store) {
+      this._store = createStore(this._models);
+    }
+
     if (container) {
-      render(container, store, app);
+      this.render(container);
     } else {
-      return getProvider(store, this);
+      return this.getProvider();
     }
-  }
-
-  function router(router) {
-    app._router = router;
-  }
-}
-
-function getProvider(store, app) {
-  return <Provider store={store}>{app._router(app, Routers)}</Provider>;
-}
-
-function render(container, store, app) {
-  ReactDom.render(getProvider(store, app), container);
-}
-
-function patchHistory(history) {
-  const oldListen = history.listen;
-  history.listen = (callback) => {
-    callback(history.location);
-    return oldListen.call(history, callback);
   };
-  return history;
+
+  render = (container) => {
+    ReactDom.render(this.getProvider(), container);
+  };
+
+  getProvider = () => {
+    return <Provider store={this._store}>{this._router()}</Provider>;
+  };
 }
 
 export default App;

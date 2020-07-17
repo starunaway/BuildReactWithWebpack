@@ -11,9 +11,7 @@ class App extends React.Component {
   }
 
   handleClick = () => {
-    Action.emit('count', {
-      value: this.props.count + 1,
-    });
+    Action.emit('increment', {value: 1});
   };
 
   render() {

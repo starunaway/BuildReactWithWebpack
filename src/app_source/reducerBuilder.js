@@ -5,6 +5,7 @@ import isObject from 'lodash/isObject';
 import has from 'lodash/has';
 import {isArray} from './utils';
 export function reducerBuilder(options, onReducer) {
+  debugger;
   let reducers = {};
   let reducerGroups = new Map();
   for (let key in options) {
@@ -30,9 +31,9 @@ export function reducerBuilder(options, onReducer) {
 
 function collectReducers(reducerGroups, reducers) {
   reducers.forEach((reducer) => {
-    let keys = reducer.key.spllit('.');
+    let keys = reducer.key.split('.');
     let [groupKey, ...subKeys] = keys;
-    let group = reducersGroup.get(groupKey);
+    let group = reducerGroups.get(groupKey);
     // redux key是不是几层
     if (!group) {
       group = new Map();

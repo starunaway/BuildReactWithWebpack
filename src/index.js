@@ -11,8 +11,8 @@ const app = new App({
   onFetchOption,
 });
 
-app.models(models);
-app.router((r) => routes(r));
+app.setModels(models);
+app.setRouter((r) => routes(r));
 app.start('#root');
 
 new Action({

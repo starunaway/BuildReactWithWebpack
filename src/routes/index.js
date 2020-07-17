@@ -6,6 +6,7 @@ export default (app) => {
     <BrowserRouter>
       <Switch>
         <Route path='/' component={Page}></Route>
+        <Route path='/page' component={Page}></Route>
       </Switch>
     </BrowserRouter>
   );
