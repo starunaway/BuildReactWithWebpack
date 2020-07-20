@@ -53,17 +53,83 @@ function collectReducers(reducers) {
   return reducerGroups;
 }
 
-function initialReducerGroup(reducerGroup, onReducer) {
+function initialReducerGroup(reducerGroup) {
   const handlers = {};
   let initialState = {};
-  for (let reducer of reducerGroup.values()) {
+  for (let reducer of Object.values(reducerGroup)) {
     if (!reducer.resultKey) {
       reducer.resultKey = 'result';
     }
     if (reducer.single) {
       initialState = reducer.initialState || {};
     } else {
-      initialState = overrideState(initialState, reducer.subKeys, reducer.initialState);
+      overrideState(initialState, reducer.subKeys, reducer.initialState);
+    }
+
+    let reducerAction = reducer.key;
+
+    handlers[reducerAction] = reducerHandler(reducer, (state, action) => {
+      console.log('处理action');
+    });
+  }
+
+  return createReducer(initialState, handlers);
+}
+
+function overrideState(state, keys, value = {}) {
+  let length = keys.length;
+  if (length === 1) {
+    state[keys[0]] = value;
+    return;
+  }
+  let previous = state;
+  for (let i = 0; i < length; ++i) {
+    if (i === length - 1) {
+      previous[keys[i]] = value;
+    } else {
+      let next = previous[keys[i]];
+      if (!next) {
+        next = previous[keys[i]] = {};
+      }
+      previous = next;
     }
   }
+}
+
+function reducerHandler(reducer, handler) {
+  return (state, action) => {
+    let result;
+    if (reducer.reducer) {
+      result = reducer.reducer(state, action);
+    } else {
+      result = handler(state, action);
+    }
+
+    if (reducer.single) {
+      state = result;
+    } else {
+      state = {...state};
+      overrideState(state, reducer.subKeys, result);
+    }
+    return state;
+  };
+}
+
+function createReducer(initialState, handlers) {
+  if (isNil(initialState)) {
+    throw new Error('没有初始state');
+  }
+  if (isNil(handlers) || !isObject(handlers)) {
+    throw new Error('Handlers must be an object');
+  }
+
+  return (state = initialState, action) => {
+    if (isNil(action) || !has(action, type)) {
+      return state;
+    }
+
+    const handler = handlers[action.type];
+    let newState = isNil(handler) ? state : handler(state, action);
+    return newState;
+  };
 }
