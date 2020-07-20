@@ -51,6 +51,6 @@ export default [
     method: 'POST',
     url: () => '/',
     body: (payload) => {},
-    success: () => {},
+    reducer: () => {},
   },
 ];

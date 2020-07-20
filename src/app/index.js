@@ -32,6 +32,7 @@ class App {
 
     if (!this._store) {
       this._store = createStore(this._models);
+      //   this._store = createReducers(this._models)
     }
 
     if (container) {
