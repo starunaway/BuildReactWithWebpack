@@ -5,7 +5,6 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import createReducers from './createReducers';
 
 export default function (models) {
-  debugger;
   let reducerObj = createReducers(models);
 
   let reducer = combineReducers(reducerObj);

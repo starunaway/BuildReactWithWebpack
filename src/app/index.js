@@ -13,15 +13,12 @@ class App {
   }
 
   setRouter = (router) => {
-    console.log('router', router);
     this._router = router;
   };
   setModels = (models) => {
-    console.log('models');
     this._models = [...this._models, ...models];
   };
   start = (container) => {
-    console.log('start');
     if (Type.isString(container)) {
       container = document.querySelector(container);
     }
@@ -32,7 +29,6 @@ class App {
 
     if (!this._store) {
       this._store = createStore(this._models);
-      //   this._store = createReducers(this._models)
     }
 
     if (container) {

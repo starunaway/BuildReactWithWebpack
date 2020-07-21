@@ -51,15 +51,15 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    year: state,
-    day: state,
-    clickTimes: state,
-    color: state,
+    // year: state,
+    // day: state,
+    // clickTimes: state,
+    // color: state,
 
-    // year: state.count.year,
-    // day: state.count.day,
-    // clickTimes: state.count.times.click,
-    // color: state.color,
+    year: state.count.year,
+    day: state.count.day,
+    clickTimes: state.count.times.click,
+    color: state.color,
   };
 }
 
