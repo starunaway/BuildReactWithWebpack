@@ -1,41 +1,41 @@
 const A = [
-  {
-    key: 'count.year',
-    initialState: {
-      color: 'red',
-      year: 2019,
-    },
-    reducer: (state, action) => {
-      console.log('count.year reducer', state, action);
-    },
-  },
+  //   {
+  //     key: 'count.year',
+  //     initialState: {
+  //       color: 'red',
+  //       year: 2019,
+  //     },
+  //     reducer: (state, action) => {
+  //       console.log('count.year reducer', state, action);
+  //     },
+  //   },
 
-  {
-    key: 'count.day',
-    initialState: {
-      color: 'blue',
-      day: 1,
-    },
-    reducer: (state, action) => {
-      console.log('count.day reducer', state, action);
-    },
-  },
+  //   {
+  //     key: 'count.day',
+  //     initialState: {
+  //       color: 'blue',
+  //       day: 1,
+  //     },
+  //     reducer: (state, action) => {
+  //       console.log('count.day reducer', state, action);
+  //     },
+  //   },
   {
     key: 'count.times.click',
     initialState: 0,
   },
-  {
-    key: 'color',
-    initialState: 'red',
-  },
+  //   {
+  //     key: 'color',
+  //     initialState: 'red',
+  //   },
 
-  {
-    key: 'user',
-    method: 'POST',
-    url: () => '/',
-    body: (payload) => {},
-    reducer: () => {},
-  },
+  //   {
+  //     key: 'user',
+  //     method: 'POST',
+  //     url: () => '/',
+  //     body: (payload) => {},
+  //     reducer: () => {},
+  //   },
 ];
 
 const b = [

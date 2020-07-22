@@ -7,23 +7,16 @@ export default function createReducers(models) {
   if (!isArray(models)) {
     throw Error('models 应该是一个扁平化数组');
   }
-  //   reducers = {
-  // 	  key1:(state, action) =>{},
-  // 	  key2:(state, action) =>{}
-  //   }
+
   let reducers = {};
   checkKey(models);
   let reducerGroups = collectReducers(models);
-
-  //   reducerGroups = {
-
-  //   }
 
   let reducerGroupsEntities = entries(reducerGroups);
   for (let [key, reducerGroup] of reducerGroupsEntities) {
     reducers[key] = initialReducerGroup(reducerGroup);
   }
-
+  console.log(reducers);
   return reducers;
 }
 
@@ -66,7 +59,14 @@ function initialReducerGroup(reducerGroup) {
     let reducerAction = reducer.key;
 
     handlers[reducerAction] = reducerHandler(reducer, (state, action) => {
-      console.log('处理action');
+      const {payload, ...other} = action;
+      delete other.type;
+      let newState;
+      if (!reducer.method && !reducer.url) {
+        newState = action.payload;
+      }
+
+      return newState;
     });
   }
 
@@ -82,11 +82,11 @@ function createReducer(initialState, handlers) {
   }
 
   return (state = initialState, action) => {
-    if (isNil(action)) {
+    if (isNil(action) || !action.type) {
       return state;
     }
 
-    const handler = handlers[action];
+    const handler = handlers[action.type];
     let newState = isNil(handler) ? state : handler(state, action);
     return newState;
   };
