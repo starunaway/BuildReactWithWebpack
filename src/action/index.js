@@ -4,9 +4,9 @@ const _action = init();
 
 class Action {
   constructor({dispatch, history}) {
-    const instacnce = _action();
-    if (instacnce) {
-      return instacnce;
+    const instance = _action();
+    if (instance) {
+      return instance;
     }
     this._dispatch = dispatch;
     this._history = history;
