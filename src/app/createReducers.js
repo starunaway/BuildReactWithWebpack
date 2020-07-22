@@ -12,11 +12,9 @@ export default function createReducers(models) {
   checkKey(models);
   let reducerGroups = collectReducers(models);
 
-  let reducerGroupsEntities = entries(reducerGroups);
-  for (let [key, reducerGroup] of reducerGroupsEntities) {
+  for (let [key, reducerGroup] of entries(reducerGroups)) {
     reducers[key] = initialReducerGroup(reducerGroup);
   }
-  console.log(reducers);
   return reducers;
 }
 
@@ -58,16 +56,7 @@ function initialReducerGroup(reducerGroup) {
 
     let reducerAction = reducer.key;
 
-    handlers[reducerAction] = reducerHandler(reducer, (state, action) => {
-      const {payload, ...other} = action;
-      delete other.type;
-      let newState;
-      if (!reducer.method && !reducer.url) {
-        newState = action.payload;
-      }
-
-      return newState;
-    });
+    handlers[reducerAction] = reducerHandler(reducer);
   }
 
   return createReducer(initialState, handlers);
@@ -103,23 +92,24 @@ function overrideState(state, keys, value = {}) {
     if (i === length - 1) {
       previous[keys[i]] = value;
     } else {
-      let next = previous[keys[i]];
-      if (!next) {
-        next = previous[keys[i]] = {};
+      if (!previous[keys[i]]) {
+        previous[keys[i]] = {};
       }
+      let next = previous[keys[i]];
       previous = next;
     }
   }
 }
 
-// 创建reducer,handler是一个默认的处理函数
-function reducerHandler(reducer, handler) {
+// 创建reducer
+function reducerHandler(reducer) {
   return (state, action) => {
     let result;
     if (reducer.reducer) {
+      debugger;
       result = reducer.reducer(state, action);
     } else {
-      result = handler(state, action);
+      result = default_reducer(state, action);
     }
 
     if (reducer.single) {
@@ -130,4 +120,10 @@ function reducerHandler(reducer, handler) {
     }
     return state;
   };
+}
+
+function default_reducer(state, action) {
+  const {payload, ...other} = action;
+  delete other.type;
+  return payload;
 }
