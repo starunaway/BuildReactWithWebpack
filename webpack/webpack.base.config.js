@@ -23,16 +23,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(less|css)$/,
-        use: [
-          //创建style 标签，将js中的css提取出来，插入到style标签中
-          'style-loader',
-          // 将css | less 文件中的样式插入到js文件中，里面的内容是样式字符串
-          'css-loader',
-          //   less-loader -> 将less文件转换成css文件
-        ],
-      },
-      {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
         exclude: /node_modules/,
@@ -73,7 +63,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './webpack/index.html',
+      template: path.resolve(__dirname, 'index.html'),
     }),
   ],
 };

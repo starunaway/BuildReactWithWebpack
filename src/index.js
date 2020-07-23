@@ -1,10 +1,9 @@
-import React from 'react';
-
 import App from '@app';
 import Action from '@action';
 import routes from '@routes';
 import models from '@models';
 import {onEffect, onFetchOption} from '@utils/reduxUtils';
+import './style.less';
 
 const app = new App({
   onEffect,

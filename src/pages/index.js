@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     let {year, day, clickTimes, color} = this.props;
     return (
-      <div>
+      <div className='time'>
         <ul>
           <li key='year' style={{color: year.color}}>
             <span>{year.year}</span>
