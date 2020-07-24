@@ -36,7 +36,7 @@ class App extends React.Component {
           <li key='day' style={{color: day.color}}>
             <span>{day.day}</span>
             <button onClick={() => Action.emit('count.day', {day: day.day + 1})}> 改变day </button>
-            <button onClick={() => Action.emit('count.day', {color: day.color === 'blue' ? 'pink' : 'blue'})}>
+            <button onClick={() => Action.emit('count.day', {color: day.color === 'blue' ? 'deeppink' : 'blue'})}>
               改变day颜色
             </button>
           </li>

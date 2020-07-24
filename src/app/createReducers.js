@@ -1,7 +1,7 @@
 import isNil from 'lodash/isNil';
 import isObject from 'lodash/isObject';
 import isArray from 'lodash/isArray';
-import {checkKey, entries} from './utils';
+import {checkKey, entries, updateState} from './utils';
 
 export default function createReducers(models) {
   if (!isArray(models)) {
@@ -13,7 +13,7 @@ export default function createReducers(models) {
   let reducerGroups = collectReducers(models);
 
   for (let [key, reducerGroup] of entries(reducerGroups)) {
-    reducers[key] = initialReducerGroup(reducerGroup);
+    reducers[key] = initialReducer(reducerGroup);
   }
   return reducers;
 }
@@ -41,7 +41,7 @@ function collectReducers(reducers) {
   return reducerGroups;
 }
 
-function initialReducerGroup(reducerGroup) {
+function initialReducer(reducerGroup) {
   const handlers = {};
   let initialState = {};
   for (let reducer of Object.values(reducerGroup)) {
@@ -51,17 +51,24 @@ function initialReducerGroup(reducerGroup) {
     if (reducer.single) {
       initialState = reducer.initialState || {};
     } else {
-      overrideState(initialState, reducer.subKeys, reducer.initialState);
+      updateState(initialState, reducer.subKeys, reducer.initialState);
     }
 
-    let reducerAction = reducer.key;
+    // 对reducer.key 下的action 创建 switch action.type 的处理函数
+    handlers[reducer.key] = reducerHandler(reducer);
 
-    handlers[reducerAction] = reducerHandler(reducer);
+    // 这是一个请求
+    if (reducer.method && reducer.url) {
+      handlers[`${reducer.key}_LOADING`] = reducerHandler(reducer, '_LOADING');
+      handlers[`${reducer.key}_SUCCESS`] = reducerHandler(reducer, '_SUCCESS');
+      handlers[`${reducer.key}_FAIL`] = reducerHandler(reducer, '_FAIL');
+    }
   }
 
   return createReducer(initialState, handlers);
 }
 
+// 返回redcuer，  const key1 = ()=>{}
 function createReducer(initialState, handlers) {
   if (isNil(initialState)) {
     throw new Error('没有初始state');
@@ -75,55 +82,79 @@ function createReducer(initialState, handlers) {
       return state;
     }
 
+    // 这里的action 可能是一个函数，这种action 需要生成
+
+    // 这里需要判断model的属性，丢拦截action，判断请求
+
     const handler = handlers[action.type];
     let newState = isNil(handler) ? state : handler(state, action);
     return newState;
   };
 }
 
-function overrideState(state, keys, value = {}) {
-  let length = keys.length;
-  if (length === 1) {
-    state[keys[0]] = value;
-    return;
-  }
-  let previous = state;
-  for (let i = 0; i < length; ++i) {
-    if (i === length - 1) {
-      previous[keys[i]] = value;
-    } else {
-      if (!previous[keys[i]]) {
-        previous[keys[i]] = {};
-      }
-      let next = previous[keys[i]];
-      previous = next;
-    }
-  }
-}
-
 // 创建reducer
-function reducerHandler(reducer) {
+function reducerHandler(reducer, type) {
   return (state, action) => {
     let result;
     if (reducer.reducer) {
-      debugger;
       result = reducer.reducer(state, action);
     } else {
-      result = default_reducer(state, action);
+      if (type) {
+        result = asyncReducer[type](reducer)(state, action);
+      } else {
+        result = syncReducer(state, action);
+      }
     }
 
     if (reducer.single) {
       state = result;
     } else {
       state = {...state};
-      overrideState(state, reducer.subKeys, result);
+      updateState(state, reducer.subKeys, result);
     }
     return state;
   };
 }
 
-function default_reducer(state, action) {
+// 默认的reducer，同步的
+function syncReducer(state, action) {
   const {payload, ...other} = action;
   delete other.type;
   return payload;
 }
+
+const asyncReducer = {
+  _LOADING: function (reducer) {
+    return (state, action) => {
+      const {payload} = action;
+      return {
+        payload: payload,
+        success: false,
+        loading: true,
+        [reducer.resultKey]: null,
+      };
+    };
+  },
+  _SUCCESS: function (reducer) {
+    return (state, action) => {
+      const {payload, result} = action;
+      return {
+        payload: payload,
+        success: true,
+        loading: false,
+        [reducer.resultKey]: result,
+      };
+    };
+  },
+  _FAIL: function (reducer) {
+    return (state, action) => {
+      const {payload, error} = action;
+      return {
+        payload: payload,
+        success: false,
+        loading: false,
+        error: error,
+      };
+    };
+  },
+};

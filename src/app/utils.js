@@ -18,3 +18,23 @@ export function checkKey(model) {
 export function entries(obj) {
   return Object.keys(obj).map((key) => [key, obj[key]]);
 }
+
+export function updateState(state, keys, value = {}) {
+  let length = keys.length;
+  if (length === 1) {
+    state[keys[0]] = value;
+    return;
+  }
+  let previous = state;
+  for (let i = 0; i < length; ++i) {
+    if (i === length - 1) {
+      previous[keys[i]] = value;
+    } else {
+      if (!previous[keys[i]]) {
+        previous[keys[i]] = {};
+      }
+      let next = previous[keys[i]];
+      previous = next;
+    }
+  }
+}
