@@ -1,5 +1,6 @@
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   module: {
@@ -33,9 +34,12 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
+    // 使用插件生成单独的文件
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
     }),
+    // 压缩css
+    new OptimizeCssAssetsWebpackPlugin(),
   ],
   mode: 'production',
 };
