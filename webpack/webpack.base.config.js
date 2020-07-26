@@ -76,4 +76,12 @@ module.exports = {
       //   },
     }),
   ],
+
+  // 开启externals 需要在resolve中配置好别名，否则找不到
+  //   externals: {
+  //不将以下的内容打包进来
+  // 需要在html中手动引入
+  // key是在js文件中被引入的名字，value是包名
+  // jquery: 'jQuery',
+  //   },
 };
