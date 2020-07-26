@@ -76,3 +76,5 @@ plugins: [
   }),
 ];
 ```
+
+需要在 output.library 中配置暴露的名字
