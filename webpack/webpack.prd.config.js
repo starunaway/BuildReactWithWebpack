@@ -36,10 +36,21 @@ module.exports = {
     new CleanWebpackPlugin(),
     // 使用插件生成单独的文件
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
+      filename: 'css/[name].[contenthash:10].css',
     }),
     // 压缩css
     new OptimizeCssAssetsWebpackPlugin(),
   ],
+
+  // 可以将node_modules 中的代码单独打包成一个chunk最终输出
+  // 如果有自己写的公共文件，也会自动打包成一个chunk
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+
+  // 生产环境或自动压缩代码
   mode: 'production',
+  //   mode: 'development',
 };

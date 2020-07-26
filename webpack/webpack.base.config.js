@@ -4,7 +4,10 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: '[name].bundle.js',
+    // hash ：每次构建，webpack会生成唯一的hash
+    // chunkhash： 根据chunk生成hash，如果打包的时候来源于同一个hash，则hash值一样
+    // contenthash:根据文件内容生成hash
+    filename: 'js/[name].[contenthash:10].js',
     path: path.resolve(__dirname, '../dist'),
   },
   resolve: {
@@ -64,6 +67,13 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'index.html'),
+      // 不用加了，新版本（当前）会自动处理
+      //   minify: {
+      // // 移除空格
+      // collapseWhitespace: true,
+      // // 移除注释
+      // removeComments: true,
+      //   },
     }),
   ],
 };

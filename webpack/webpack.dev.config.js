@@ -5,6 +5,7 @@ module.exports = {
         test: /\.(less|css)$/,
         use: [
           //创建style 标签，将js中的css提取出来，插入到style标签中
+          //   style-loader 实现了 HMR 功能，开发环境使用
           'style-loader',
           // 将css | less 文件中的样式插入到js文件中，里面的内容是样式字符串
           'css-loader',
@@ -14,7 +15,7 @@ module.exports = {
     ],
   },
 
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   devServer: {
     contentBase: './dist',
     port: 10086,
