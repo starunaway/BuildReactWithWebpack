@@ -1,6 +1,7 @@
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -66,6 +67,15 @@ module.exports = {
     runtimeChunk: {
       name: (entrypoint) => `runtime-${entrypoint.name}`,
     },
+    minimizer: [
+      // 生产环境压缩js 和css ，原来的uglify不维护了
+      new TerserWebpackPlugin({
+        cache: true,
+        // 多进程
+        parallel: true,
+        sourceMap: true,
+      }),
+    ],
   },
 
   // 生产环境或自动压缩代码
