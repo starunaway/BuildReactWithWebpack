@@ -25,7 +25,7 @@ class SyncLoopHook {
   }
 }
 
-// export default SyncHook;
+export default SyncLoopHook;
 
 let hook = new SyncLoopHook(['name']);
 let total = 0;
