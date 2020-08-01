@@ -14,6 +14,8 @@ class SyncHook {
   }
 }
 
+export default SyncHook;
+
 let hook = new SyncHook(['name']);
 hook.tap('react', function (name) {
   console.log('react', name);
