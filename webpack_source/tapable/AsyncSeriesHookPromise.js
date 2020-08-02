@@ -14,7 +14,7 @@ class AsyncSeriesHookPromise {
   }
 }
 
-// export default AsyncSeriesHookPromise;
+export default AsyncSeriesHookPromise;
 
 let hook = new AsyncSeriesHookPromise(['name']);
 hook.tapPromise('react', function (name) {
