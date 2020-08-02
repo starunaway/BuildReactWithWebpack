@@ -1,0 +1,9 @@
+{
+  "name": "webpack_source",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "zf-pack": "./bin/zf-pack.js"
+  }
+}
