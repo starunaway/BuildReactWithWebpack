@@ -1,4 +1,4 @@
-class AsyncParallelHook {
+class AsyncSeriesHook {
   constructor(args) {
     this.tasks = [];
   }
@@ -7,25 +7,23 @@ class AsyncParallelHook {
   }
 
   callAsync(...args) {
-    let finalCallback = args.pop();
     let index = 0;
-
-    const done = () => {
-      index++;
-      if (index === this.tasks.length) {
-        finalCallback();
+    let finalCallback = args.pop();
+    let next = () => {
+      if (this.tasks.length === index) {
+        return finalCallback();
       }
-    };
 
-    this.tasks.forEach((task) => {
-      task(...args, done);
-    });
+      let task = this.tasks[index++];
+      task(...args, next);
+    };
+    next();
   }
 }
 
-export default AsyncParallelHook;
+export default AsyncSeriesHook;
 
-let hook = new AsyncParallelHook(['name']);
+let hook = new AsyncSeriesHook(['name']);
 hook.tapAsync('react', function (name, cb) {
   setTimeout(() => {
     console.log('react', name);
