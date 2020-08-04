@@ -20,7 +20,29 @@ class Compiler {
   }
 
   getSource(modulePath) {
-    return fs.readFileSync(modulePath, 'utf8');
+    let rules = this.config.module.rules;
+    let content = fs.readFileSync(modulePath, 'utf8');
+    for (let i = 0; i < rules.length; i++) {
+      let rule = rules[i];
+      let {test, use} = rule;
+      let len = use.length - 1;
+      if (test.test(modulePath)) {
+        // 模块需要loader解析
+        function normalloader() {
+          let loader = require(use[len--]);
+          console.log(loader);
+          //    递归
+          content = loader(content);
+          if (len >= 0) {
+            normalloader();
+          }
+          console.log(content);
+        }
+
+        normalloader();
+      }
+    }
+    return content;
   }
 
   parse(source, parentPath) {

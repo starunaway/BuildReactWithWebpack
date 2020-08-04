@@ -19,4 +19,5 @@
 // });
 
 let a = require('./a.js');
+require('./style.less');
 console.log(a);
