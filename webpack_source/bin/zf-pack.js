@@ -8,4 +8,7 @@ const Compiler = require('../lib/Compiler');
 
 let compiler = new Compiler(typeof config === 'function' ? config() : config);
 // 运行编译
+
+compiler.hooks.entryOption.call();
+
 compiler.run();

@@ -5,6 +5,7 @@ let t = require('@babel/types');
 let traverse = require('@babel/traverse').default;
 let generator = require('@babel/generator').default;
 let ejs = require('ejs');
+let {SyncHook} = require('tapable');
 
 class Compiler {
   constructor(config) {
@@ -17,6 +18,24 @@ class Compiler {
     this.entry = config.entry;
     // 工作路径
     this.root = process.cwd();
+    this.hooks = {
+      entryOption: new SyncHook(),
+      compile: new SyncHook(),
+      afterCompile: new SyncHook(),
+      afterPlugins: new SyncHook(),
+      run: new SyncHook(),
+      emit: new SyncHook(),
+      done: new SyncHook(),
+    };
+
+    // 如果有插件
+    let plugins = this.config.plugins;
+    if (Array.isArray(plugins)) {
+      plugins.forEach((plugin) => {
+        plugin.apply(this);
+      });
+    }
+    this.hooks.afterPlugins.call();
   }
 
   getSource(modulePath) {
@@ -30,13 +49,11 @@ class Compiler {
         // 模块需要loader解析
         function normalloader() {
           let loader = require(use[len--]);
-          console.log(loader);
           //    递归
           content = loader(content);
           if (len >= 0) {
             normalloader();
           }
-          console.log(content);
         }
 
         normalloader();
@@ -99,9 +116,15 @@ class Compiler {
   }
 
   run() {
+    this.hooks.run.call();
+
+    this.hooks.compile.call();
     this.buildModule(path.resolve(this.root, this.entry), true);
-    console.log(this.modules, this.entryId);
+    this.hooks.afterCompile.call();
+
     this.emitFile();
+    this.hooks.emit.call();
+    this.hooks.done.call();
   }
 }
 module.exports = Compiler;
