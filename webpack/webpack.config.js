@@ -28,6 +28,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: `${path.resolve(__dirname, '../loader/babel-loader.js')}`,
+            options: {presets: ['@babel/preset-env']},
+          },
+        ],
+      },
+      {
         test: /\.(less)$/,
         use: [
           path.resolve(__dirname, '../loader/style-loader.js'),
@@ -36,7 +45,7 @@ module.exports = {
       },
     ],
   },
-
+  devtool: 'source-map',
   plugins: [new P()],
   mode: 'development',
 };

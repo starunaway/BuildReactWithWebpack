@@ -48,7 +48,12 @@ class Compiler {
       if (test.test(modulePath)) {
         // 模块需要loader解析
         function normalloader() {
-          let loader = require(use[len--]);
+          let loader = use[len--];
+          if (typeof loader === 'string') {
+            loader = require(loader);
+          } else {
+            loader = require(loader.loader);
+          }
           //    递归
           content = loader(content);
           if (len >= 0) {

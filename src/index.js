@@ -20,4 +20,4 @@
 
 let a = require('./a.js');
 require('./style.less');
-console.log(a);
+console.log('hhhhhhhhhhhhhhhhhhhh', a);
