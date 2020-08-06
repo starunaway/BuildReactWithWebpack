@@ -37,6 +37,18 @@ module.exports = {
         ],
       },
       {
+        test: /\.(js)$/,
+        use: [
+          {
+            loader: `${path.resolve(__dirname, '../loader/banner-loader.js')}`,
+            options: {
+              text: '啦啦啦',
+              //   filename: path.resolve(__dirname, '../src/index.js'),
+            },
+          },
+        ],
+      },
+      {
         test: /\.(less)$/,
         use: [
           path.resolve(__dirname, '../loader/style-loader.js'),
