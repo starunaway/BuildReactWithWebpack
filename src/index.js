@@ -18,6 +18,11 @@
 //   dispatch: app._store.dispatch,
 // });
 
-let a = require('./a.js');
 require('./style.less');
+let a = require('./a.js');
 console.log('hhhhhhhhhhhhhhhhhhhh', a);
+
+import p from './1.jpg';
+let img = document.createElement('img');
+img.src = p;
+document.body.appendChild(img);

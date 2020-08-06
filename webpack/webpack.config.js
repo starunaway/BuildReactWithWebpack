@@ -49,6 +49,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.(jpg)$/,
+        use: [path.resolve(__dirname, '../loader/file-loader.js')],
+      },
+      {
         test: /\.(less)$/,
         use: [
           path.resolve(__dirname, '../loader/style-loader.js'),
