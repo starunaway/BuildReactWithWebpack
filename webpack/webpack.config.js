@@ -50,7 +50,14 @@ module.exports = {
       },
       {
         test: /\.(jpg)$/,
-        use: [path.resolve(__dirname, '../loader/file-loader.js')],
+        use: [
+          {
+            loader: path.resolve(__dirname, '../loader/url-loader.js'),
+            options: {
+              limit: 2000 * 1024,
+            },
+          },
+        ],
       },
       {
         test: /\.(less)$/,

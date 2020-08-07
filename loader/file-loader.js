@@ -1,5 +1,4 @@
 let loaderUtils = require('loader-utils');
-let fs = require('fs');
 
 function loader(source) {
   let filename = loaderUtils.interpolateName(this, '[hash].[ext]', {content: source});

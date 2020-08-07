@@ -1,12 +1,14 @@
 let loaderUtils = require('loader-utils');
-let fs = require('fs');
-
+let mime = require('mime');
 function loader(source) {
-  let filename = loaderUtils.interpolateName(this, '[hash].[ext]', {content: source});
-  this.emitFile(filename, source);
-
-  return `module.exports="${filename}"`;
+  let {limit} = loaderUtils.getOptions(this);
+  if (limit && limit > source.length) {
+    // return `module.exports=data:image/jpeg;base64,`;
+    return `module.exports="data:${mime.getType(this.resourcePath)};base64,${source.toString('base64')}"`;
+  } else {
+    return require('./file-loader').call(this, source);
+  }
 }
-loader.raw = true; //二进制
 
+loader.raw = true; //二进制
 module.exports = loader;
