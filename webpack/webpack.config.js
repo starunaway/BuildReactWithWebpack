@@ -54,7 +54,7 @@ module.exports = {
           {
             loader: path.resolve(__dirname, '../loader/url-loader.js'),
             options: {
-              limit: 2000 * 1024,
+              limit: 200 * 1024,
             },
           },
         ],
@@ -63,6 +63,7 @@ module.exports = {
         test: /\.(less)$/,
         use: [
           path.resolve(__dirname, '../loader/style-loader.js'),
+          path.resolve(__dirname, '../loader/css-loader.js'),
           path.resolve(__dirname, '../loader/less-loader.js'),
         ],
       },
