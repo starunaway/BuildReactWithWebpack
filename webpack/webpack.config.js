@@ -19,6 +19,8 @@ class P {
   }
 }
 
+const DonePlugin = require('../plugin/DonePlugin');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -69,7 +71,8 @@ module.exports = {
       },
     ],
   },
-  devtool: 'source-map',
-  plugins: [new P()],
+  plugins: [],
+  devtool: 'eval-source-map',
+  plugins: [new P(), new DonePlugin()],
   mode: 'development',
 };
