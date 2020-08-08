@@ -21,6 +21,7 @@ class P {
 
 const DonePlugin = require('../plugin/DonePlugin');
 const FileListPlugin = require('../plugin/FileListPlugin');
+const InlineSourcePlugin = require('../plugin/InlineSourcePlugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -79,6 +80,10 @@ module.exports = {
     new DonePlugin(),
     new FileListPlugin({
       filename: 'list.md',
+    }),
+
+    new InlineSourcePlugin({
+      match: /\.(js|css)$/,
     }),
   ],
   mode: 'development',
