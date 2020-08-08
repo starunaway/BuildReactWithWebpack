@@ -20,6 +20,7 @@ class P {
 }
 
 const DonePlugin = require('../plugin/DonePlugin');
+const FileListPlugin = require('../plugin/FileListPlugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -73,6 +74,12 @@ module.exports = {
   },
   plugins: [],
   devtool: 'eval-source-map',
-  plugins: [new P(), new DonePlugin()],
+  plugins: [
+    new P(),
+    new DonePlugin(),
+    new FileListPlugin({
+      filename: 'list.md',
+    }),
+  ],
   mode: 'development',
 };
