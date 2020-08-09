@@ -7,23 +7,22 @@
 需要做兼容性处理时，要按需加载,使用 core-js
 
 ```json
-	presets:[
-		'@babel/preset-env',
-		{
-			// 按需加载
-			useBuiltIns: 'usage',
-			// 指定core-js 版本
-			corejs: {
-				version: 3,
-			},
-			// 指定兼容到哪个版本的浏览器
-			targets: {
-				chrome: '60',
-				ie: '9',
-			},
-		},
-	]
-
+presets: [
+  '@babel/preset-env',
+  {
+    // 按需加载
+    useBuiltIns: 'usage',
+    // 指定core-js 版本
+    corejs: {
+      version: 3,
+    },
+    // 指定兼容到哪个版本的浏览器
+    targets: {
+      chrome: '60',
+      ie: '9',
+    },
+  },
+];
 ```
 
 ## eslint 支持环境变量
@@ -32,14 +31,12 @@
 在 package.json 中配置
 
 ```json
-
-eslintConfig:{
-	"extends":"airbnb-base",
-	"env":{
-		"browser":true
-	}
-}
-
+eslintConfig: {
+  extends: 'airbnb-base',
+  env: {
+    browser: true,
+  },
+};
 ```
 
 ## js 懒加载和预加载
