@@ -1,30 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+const ProviderContext = React.createContext(null);
 export class Provider extends React.Component {
-  static childContextTypes = {
-    store: () => null,
-  };
-
-  getChildContext() {
-    return {
-      store: this.props.store,
-    };
-  }
-
   render() {
-    const {children} = this.props;
-    return children;
+    const {children, store} = this.props;
+    // console.log(children, store);
+    return <ProviderContext.Provider value={{store}}>{children}</ProviderContext.Provider>;
   }
 }
 
 export function connect(mapStateToProps, mapDispatchToProps) {
   return (UIComponent) => {
-    return class ContainerComponent extends React.Component {
-      static contextTypes = {
-        store: () => null,
-      };
-
+    class ContainerComponent extends React.Component {
       constructor(props, context) {
         super(props);
         console.log(props, context);
@@ -55,6 +42,8 @@ export function connect(mapStateToProps, mapDispatchToProps) {
         console.log(stateProps);
         return <UIComponent {...stateProps} {...this.dispatchProps}></UIComponent>;
       }
-    };
+    }
+    ContainerComponent.contextType = ProviderContext;
+    return ContainerComponent;
   };
 }
